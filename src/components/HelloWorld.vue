@@ -64,7 +64,13 @@ export default class HelloWorld extends Vue {
       'Hard Knox, Rick Peters',
       'Hard Knox - Jason Ricker',
     ],
-    'Team Shaqtin-a-Fool': ['Team Shaqtin-a-Fool Newmy', 'Shaqtin-a-Fool', 'Team Shaqtin-a-fool', 'Shaqtin-A-Fool, Bekah'],
+    'Team Shaqtin-a-Fool': [
+      'Team Shaqtin-a-Fool Newmy',
+      'Shaqtin-a-Fool',
+      'Team Shaqtin-a-fool',
+      'Shaqtin-A-Fool, Bekah',
+      'espnfan2220195207 1',
+    ],
     'Lynnes Legends': ['Lynne&#39;s Legends', 'Lynne&#39;s Legends, John', 'Lynnes Legends'],
     'Team Brick': ['Team Brick', 'Team Brick - Will Bernits', 'Team Brick - Robert', 'Team Brick - Phil'],
     'Team Houston We Have A Winner': ['Houston, We Have A Winner', 'Team Houston We Have A Winner'],
@@ -76,7 +82,6 @@ export default class HelloWorld extends Vue {
       'Garet Branham 1',
       'Team 4 - Will Smith',
       'test',
-      'espnfan2220195207 1',
     ],
   }
 
@@ -115,12 +120,16 @@ export default class HelloWorld extends Vue {
   mounted(): void {
     axios.get('https://fantasy.espncdn.com/tournament-challenge-bracket/2021/en/api/v7/group?groupID=3674379&sort=-1&start=0&length=100&periodPoints=true').then((resp) => {
       const players = resp.data.g.e;
+      console.log(players);
       const pointsByTeam: Record<string, any> = {};
       const availableNames = Object.keys(this.teamNames);
       availableNames.forEach((teamName: string) => {
         players.forEach((player: any) => {
           const name = player.n_e;
           if (this.teamNames[teamName].includes(name)) {
+            if (teamName === 'Team Unknown') {
+              console.log(player);
+            }
             if (pointsByTeam[teamName]) {
               pointsByTeam[teamName].push(player.p);
             } else {
