@@ -139,7 +139,7 @@ export default class HelloWorld extends Vue {
 
   mounted(): void {
     axios.get('https://fantasy.espncdn.com/tournament-challenge-bracket/2021/en/api/v7/group?groupID=3674379&sort=-1&start=0&length=100&periodPoints=true').then((resp) => {
-      const players = resp.data.g.e;
+      const players = resp.data.g.e.filter((player: any) => player.p);
       console.log(players);
       const pointsByTeam: Record<string, any> = {};
       const availableNames = Object.keys(this.teamNames);
