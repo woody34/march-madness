@@ -10,7 +10,16 @@
           class="elevation-1"
           sort-by="average"
           sort-desc
-        />
+          :search="searchAverage"
+        >
+          <template v-slot:top>
+            <v-text-field
+              v-model="searchAverage"
+              label="Search"
+              class="mx-4"
+            />
+          </template>
+        </v-data-table>
       </v-card-text>
     </v-card>
     <v-card>
@@ -23,7 +32,16 @@
           class="elevation-1"
           sort-by="points"
           sort-desc
-        />
+          :search="searchTeamMember"
+        >
+          <template v-slot:top>
+            <v-text-field
+              v-model="searchTeamMember"
+              label="Search"
+              class="mx-4"
+            />
+          </template>
+        </v-data-table>
       </v-card-text>
     </v-card>
   </div>
@@ -116,6 +134,10 @@ export default class HelloWorld extends Vue {
 
     },
   ]
+
+  searchAverage = '';
+
+  searchTeamMember = ''
 
   mounted(): void {
     axios.get('https://fantasy.espncdn.com/tournament-challenge-bracket/2021/en/api/v7/group?groupID=3674379&sort=-1&start=0&length=100&periodPoints=true').then((resp) => {
