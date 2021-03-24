@@ -62,7 +62,11 @@ export default class HelloWorld extends Vue {
   teamNames: Record<string, any> = {
     'Team Sportsball': ['Team Sportsball'],
     'Team March Madmen': ['Team March Madmen', 'March Mad Men', 'Team March Mad Men'],
-    'Team Final Fourgasm': ['Team Final Fourgasm', 'Final Fourgasm'],
+    'Team Final Fourgasm': [
+      'Team Final Fourgasm',
+      'Final Fourgasm',
+      'Team 4 - Will Smith',
+    ],
     'Team Shock Callers': [
       'Team ShockCallers',
       'Shock Caller',
@@ -73,7 +77,7 @@ export default class HelloWorld extends Vue {
       'Shock Callers Jason',
       'Team Shock Callers - CT',
     ],
-    'Team Cash Money': ['Cash Money', 'Team Cash Money'],
+    'Team Cash Money': ['Cash Money', 'Team Cash Money', 'Cache'],
     'Team Hard Knox': [
       'Team Hard Knox',
       'Team-Hard-Knox',
@@ -88,19 +92,13 @@ export default class HelloWorld extends Vue {
       'Team Shaqtin-a-fool',
       'Shaqtin-A-Fool, Bekah',
       'espnfan2220195207 1',
+      'ESPNFAN5371782894 1',
+      'Garet Branham 1',
     ],
-    'Lynnes Legends': ['Lynne&#39;s Legends', 'Lynne&#39;s Legends, John', 'Lynnes Legends'],
+    'Lynnes Legends': ['Lynne&#39;s Legends', 'Lynne&#39;s Legends, John', 'Lynnes Legends', 'KaneKane6 1'],
     'Team Brick': ['Team Brick', 'Team Brick - Will Bernits', 'Team Brick - Robert', 'Team Brick - Phil'],
     'Team Houston We Have A Winner': ['Houston, We Have A Winner', 'Team Houston We Have A Winner'],
     'Team Hazing': ['Team Hazing, Kristin B', 'Team Hazing', 'Team Hazing-BB'],
-    'Team Unknown': [
-      'Cache',
-      'ESPNFAN5371782894 1',
-      'KaneKane6 1',
-      'Garet Branham 1',
-      'Team 4 - Will Smith',
-      'test',
-    ],
   }
 
   teamAverageHeaders = [
