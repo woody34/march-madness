@@ -95,9 +95,8 @@ export default class HelloWorld extends Vue {
       'ESPNFAN5371782894 1',
       'Garet Branham 1',
     ],
-    'Lynnes Legends': ['Lynne&#39;s Legends', 'Lynne&#39;s Legends, John', 'Lynnes Legends', 'KaneKane6 1'],
+    'Lynnes Legends': ['Lynne&#39;s Legends', 'Lynne&#39;s Legends, John', 'Lynnes Legends', 'KaneKane6 1', 'Houston, We Have A Winner', 'Team Houston We Have A Winner'],
     'Team Brick': ['Team Brick', 'Team Brick - Will Bernits', 'Team Brick - Robert', 'Team Brick - Phil'],
-    'Team Houston We Have A Winner': ['Houston, We Have A Winner', 'Team Houston We Have A Winner'],
     'Team Hazing': ['Team Hazing, Kristin B', 'Team Hazing', 'Team Hazing-BB'],
   }
 
@@ -128,6 +127,12 @@ export default class HelloWorld extends Vue {
     {
       text: 'Points',
       value: 'points',
+      sortable: true,
+
+    },
+    {
+      text: 'Max Points',
+      value: 'max',
       sortable: true,
 
     },
@@ -166,7 +171,7 @@ export default class HelloWorld extends Vue {
           const name = player.n_e;
           if (this.teamNames[teamName].includes(name)) {
             const playerData = {
-              teamName, alias: player.n_m, points: player.p, p: player.p,
+              teamName, alias: player.n_m, points: player.p, p: player.p, max: player.max,
             };
             playersByTeam.push(playerData);
           }
@@ -186,6 +191,8 @@ export default class HelloWorld extends Vue {
 
       this.averages = teamAverages;
       this.players = playersByTeam;
+
+      console.log(players);
     });
   }
 }
